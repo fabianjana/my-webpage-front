@@ -1,18 +1,22 @@
 import { useState } from 'react';
 
-const ChangeNick = ({socket, label, initialState, buttonText, handleNickChange}) => {
+const ChangeNick = ({socket, label, initialState, buttonText, handleNickChange, cancel, closeAction}) => {
 	const [value, setValue] = useState(initialState);
-	const [error, setError] = useState('')
+	const [error, setError] = useState('');
 
 	const requestChangeNick = (event) => {
 		socket.emit('change nick', value, (response) => {
 			const nick = response.data;
-			setError(response.error);
-			console.log(response.error);
-			if (!response.error) handleNickChange(nick);
+			if (response.error) setError(response.error);
+			else handleNickChange(nick);
 		});
 		event.preventDefault();
 	};
+
+	const onChange = (event) => {
+		setValue(event.target.value);
+		setError('');
+	}
 
 	return(
 		<form onSubmit={requestChangeNick} autoComplete="off">
@@ -21,11 +25,12 @@ const ChangeNick = ({socket, label, initialState, buttonText, handleNickChange})
 				id="nick"
 				type="text"
 				value={value}
-				onChange={(event) => setValue(event.target.value)}
+				onChange={onChange}
 				autoCorrect="off"
 				autoCapitalize="off"
 				spellCheck="false"
 				autoFocus />
+			{cancel && <button type="button" onClick={() => closeAction(false)}>Close</button>}
 			<button>{buttonText}</button>
 			{error &&  <div className="error">{error}</div>}
 		</form>

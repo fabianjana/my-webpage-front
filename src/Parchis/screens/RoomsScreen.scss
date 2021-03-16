@@ -23,18 +23,26 @@
 
 	.greetings {
 		float: right;
-		
+		text-align: right;
+
+		@media only screen and (max-width: 320px){
+			float: none;
+			margin-left: auto;
+			width: fit-content;
+		}
+
 		button {
+			text-align: right;
 			position: relative;
 			color: $foreground;
 			font-size: 0.7em;
 			background-color: transparent;
 			border: none;
-			
+
 			&::after {
+				position: absolute;
 				content: "";
 				background-color: $foreground;
-				position: absolute;
 				width: 0.6rem;
 				height: 0.1rem;
 				border-radius: 4px;
@@ -48,6 +56,7 @@
 			}
 
 			&:hover {
+				color: $foreground;
 				background-color: transparent;
 				border: none;
 			}
@@ -60,11 +69,28 @@
 
 		> div {
 			font: inherit;
+			cursor: pointer;
 			color: $background;
 			background-color: $foreground;
-			margin-top: 0.5rem;
-			padding: 0.3rem 1rem;
+			margin: 0.5rem 0.3rem 0 0.3rem;
+			padding: 0.4rem 0.5rem;
+			user-select: none;
+
+			span {
+				font-size: 0.9em;
+				margin-right: 0.5rem;
+				color: grey;
+			}
 		}
+
+		> div.empty-room-list {
+			margin-top: 25%;
+			text-align: center;
+			background-color: $background;
+			font-style: italic;
+			color: $grey;
+		}
+		
 		
 		&::-webkit-scrollbar {
 			width: 8px;
@@ -73,19 +99,80 @@
 		&::-webkit-scrollbar-track {
 			background: transparent;
 		}
-		
+
 		&::-webkit-scrollbar-thumb {
 			background-color: $foreground;
 			border-radius: 20px;
 		}
 	}
 
-	.join-button {
+	.buttons {
+
 		button {
-			width: 40%;
-			margin-top: 0.5rem;
-			margin-left: auto;
+			margin: 1rem 0 0.3em auto;
+			width: 10em;
 			padding: 0.3rem 1rem;
+
+			@media only screen and (max-width: 320px){
+				width: 100%;
+			}
+		}
+	}
+
+	.modal {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		backdrop-filter: blur(2px);
+		transition: all 0.2s;
+
+		> form {
+			position: relative;
+			margin: 20vh auto;
+			width: 80%;
+			background-color: $foreground;
+			padding: 1rem;
+			border-radius: 4px;
+
+			label {
+				position: absolute;
+				bottom: 105%;
+				font-size: 1.6em;
+				font-weight: 600;
+			}
+
+			input {
+				text-align: left;
+				padding: 0.2em;
+				font: inherit;
+				border: none;
+				border: 3px solid $background;
+			}
+
+			button {
+				margin: 0.5rem 0.5rem 0 0.3rem;
+				display: inline-block;
+				padding: 0.4rem;
+				width: fit-content;
+				border-color: $background;
+			}
+
+			div.error {
+				top: 110%;
+				left: 50%;
+				transform: translate(-50%);
+				padding: 0.8em;
+				width: max-content;
+				border-radius: 4px;
+				background-color: $red;
+				position: absolute;
+				font-size: 0.7em;
+				color: $foreground;
+			}
+
 		}
 	}
 }

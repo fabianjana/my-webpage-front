@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+nav {
+	display: none;
+}
+
 .parchis-container {
 	overflow: hidden;
 	position: relative;
@@ -9,14 +13,14 @@
 	
 	button {
 		font: inherit;
-		background-color: $grey;
-		border: 3px solid $background;
+		color: $foreground;
+		background-color: $background;
+		border: 3px solid $foreground;
 		transition: all .2s;
 	}
 
 	button:hover {
-		color: $foreground;
-		border: 3px solid $foreground;
-		background-color: $background;
+		color: $background;
+		background-color: $foreground;
 	}
 }

@@ -40,7 +40,7 @@ const Parchis = () => {
 			case 0:
 				return <IntroScreen socket={socket} playerInfo={playerInfo} setPlayerInfo={setPlayerInfo} setStep={setStep} />;
 			case 1:
-				return <RoomsScreen />;
+				return <RoomsScreen socket={socket} playerInfo={playerInfo} setPlayerInfo={setPlayerInfo} />;
 			case 2:
 				return <LobbyScreen />;
 			default:
@@ -54,28 +54,5 @@ const Parchis = () => {
 		</div>
 	);
 }
-
-// const IntroScreen = ({socket, playerInfo, setPlayerInfo, setStep}) => {
-// 	const [fade, setFade] = useState(false);
-
-// 	const handleNickChange = (nick) => {
-// 		setPlayerInfo({...playerInfo, nick: nick});
-// 		setFade(true);
-// 		setTimeout(() => {
-// 			setStep(1);
-// 		}, 300);
-// 	}
-
-// 	return (
-// 		<div className={`change-nick-screen${fade ? " fade-out" : ""}`}>
-// 			<ChangeNick
-// 				socket={socket}
-// 				label="Who are you?"
-// 				initialState=""
-// 				buttonText="Get Started"
-// 				handleNickChange={handleNickChange} />
-// 		</div>
-// 	);
-// }
 
 export default Parchis;
