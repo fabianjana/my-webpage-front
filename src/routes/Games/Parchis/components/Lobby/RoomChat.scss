@@ -1,0 +1,78 @@
+@import 'variables';
+
+.RoomChat {
+	display: grid;
+	grid-template: auto 1fr / 1fr;
+
+	> .chatBox {
+		display: grid;
+		grid-template: 1fr auto / 1fr;
+		background-color: $foreground;
+		border-radius: 4px;
+		height: 160px;
+
+		> .messages {
+			padding: 0 0.5em;
+			height: 140px;
+			overflow-y: scroll;
+
+			&::-webkit-scrollbar {
+				width: 8px;
+			}
+			
+			&::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			
+			&::-webkit-scrollbar-thumb {
+				background-color: $foreground-2;
+				border-radius: 20px;
+			}
+
+			> p {
+				font-size: 0.6em;
+				line-height: 1.6em;
+				font-style: normal;
+
+				> span {
+					font-style: normal;
+					font-weight: bold;
+
+					&.colorRed {
+						color: $red;
+					}
+
+					&.colorBlue {
+						color: $blue;
+					}
+
+					&.colorGreen {
+						color: $green;
+					}
+
+					&.colorYellow {
+						color: $yellow;
+					}
+				}
+			}
+		}
+
+		> input {
+			font-weight: 600;
+			position: relative;
+			display: block;
+			padding: 0.6em;
+			appearance: none;
+			border: none;
+			border-top: 1px solid $background;
+			background-color: $foreground;
+			border-radius: 0 0 4px 4px;
+
+			&:focus {
+				appearance: none;
+				outline: none;
+
+			}
+		}
+	}
+}

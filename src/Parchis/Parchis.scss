@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.parchis-container {
+	overflow: hidden;
+	position: relative;
+	background-color: $background;
+	color: $foreground;
+	height: 100%;
+	
+	button {
+		font: inherit;
+		background-color: $grey;
+		border: 3px solid $background;
+		transition: all .2s;
+	}
+
+	button:hover {
+		color: $foreground;
+		border: 3px solid $foreground;
+		background-color: $background;
+	}
+}

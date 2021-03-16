@@ -1,0 +1,171 @@
+@import 'variables';
+
+.RoomView {
+	display: grid;
+	grid-template: auto auto auto 1fr / 3fr 1fr;
+	grid-template-areas:
+		"title title"
+		"players settings"
+		"players spectators"
+		"chat spectators";
+	width: 100%;
+	height: 100%;
+	max-width: 960px;
+	margin: auto;
+
+	@media only screen and (max-width: 600px){
+		grid-template: auto auto auto 1fr / 1fr 1fr;
+		grid-template-areas: "title title" "players players" "settings spectators" "chat chat";
+	}
+
+	@media only screen and (max-width: 320px){
+		grid-template: auto auto auto auto auto auto / 1fr;
+		grid-template-areas: "title" "players" "settings" "spectators" "chat";
+	}
+
+	> :nth-child(1) {
+		grid-area: title;
+		padding: 1em;
+	}
+
+	> :nth-child(2) {
+		grid-area: settings;
+		padding: 1em;
+	}
+
+	> :nth-child(3) {
+		grid-area: players;
+		padding: 1em;
+	}
+
+	> :nth-child(4) {
+		grid-area: spectators;
+		padding: 1em;
+	}
+	
+	> :nth-child(5) {
+		grid-area: chat;
+		padding: 1em;
+	}
+
+	h1 {
+		font-size: 1.8em;
+		color: $foreground;
+	}
+
+	h2 {
+		font-size: 1.4em;
+		color: $foreground;
+		margin-bottom: 0.4em;
+	}
+
+	p {
+		font-style: italic;
+		color: $foreground-2;
+	}
+
+	span {
+		color: $foreground-2;
+		font-weight: 400;
+		font-style: italic;
+	}
+}
+
+
+// .room-view
+// 	display: flex
+// 	flex-wrap: wrap
+// 	width: 100%
+// 	max-width: 960px
+// 	margin: auto
+	
+// 	.room-title
+// 		flex: 1 1 400px
+// 		padding: 1em
+// 		color: $foreground
+
+// 		span
+// 			font-style: italic
+
+// 	.room-settings
+// 		flex: 1 1 200px
+// 		padding: 1em
+// 		color: $foreground
+
+// 		h2
+// 			padding: 40px 20px 20px 20px
+// 			font-size: 20px
+// 			font-weight: 600
+
+// 	.players-container
+// 		flex: 1 1 400px
+// 		padding: 1em
+
+// 		h2
+// 			padding: 20px
+// 			font-size: 26px
+// 			font-weight: 600
+// 			color: $foreground
+		
+// 		.player-list
+			
+// 			.player-card
+// 				padding: 22px 30px
+// 				font-size: 18px
+// 				width: 100%
+// 				height: 80px
+// 				background-size: 150% 150%
+// 				transition: background 0.2s ease-in-out
+				
+// 				&:nth-child(1)
+// 					border-radius: 10px 10px 0 0
+// 					background-image: $red-card
+
+// 				&:nth-child(2)
+// 					background-image: $blue-card
+
+// 				&:nth-child(3)
+// 					background-image: $green-card
+					
+// 				&:nth-child(4)
+// 					border-radius: 0 0 10px 10px
+// 					background-image: $yellow-card
+
+// 				&:hover
+// 					background-position: 50%;
+				
+// 				.player-nick
+// 					position: relative
+// 					font-weight: 600
+// 					color: $foreground
+				
+// 				.player-owner::before
+// 					position: absolute
+// 					bottom: -14px
+// 					content: "Owner"
+// 					font-size: 12px
+// 					font-style: italic
+// 					color: $foreground-2
+
+// 			.player-slot
+// 				color: $foreground
+// 				padding: 22px 30px
+// 				width: 100%
+// 				height: 80px
+
+// 	.spectators-container
+// 		flex: 1 1 200px
+// 		padding: 1em
+// 		color: $foreground
+
+// 		h2
+// 			padding: 40px 20px 20px 20px
+// 			font-size: 20px
+// 			font-weight: 600
+		
+// 		.spectator-list
+// 			background-image: $spec-card
+// 			border-radius: 8px
+			
+// 			.spectator
+// 				padding: 0.4em 1em

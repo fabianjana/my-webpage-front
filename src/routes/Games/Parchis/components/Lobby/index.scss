@@ -1,0 +1,13 @@
+@import 'variables';
+
+.parchis-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	
+	.lobby {
+		display: flex;
+		flex-grow: 1;
+		background-color: $background;
+	}
+}

@@ -10,8 +10,8 @@ function Games() {
 
 	return (
 		<div>
-			<Link exact to={`${url}/monopoly`}>Monopoly</Link>
-			<Link exact to={`${url}/parchis`}>Parchis</Link>
+			<Link to={`${url}/monopoly`}>Monopoly</Link>
+			<Link to={`${url}/parchis`}>Parchis</Link>
 		</div>
 	);
 }

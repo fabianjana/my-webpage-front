@@ -1,0 +1,56 @@
+@import 'variables';
+
+.player-list {
+	display: grid;
+	grid-template: 1fr 1fr / 1fr 1fr;
+	gap: 1em;
+
+	@media only screen and (max-width: 320px){
+		grid-template: 1fr 1fr 1fr 1fr / 1fr;
+	}
+
+	> .player-wrapper {
+		position: relative;
+		height: 75px;
+		border-radius: 4px;
+		overflow: hidden;
+		padding: .1px;
+
+		> .player {
+			height: 100%;
+			background-color: $foreground;
+			padding: 0.5em;
+			border-radius: 4px;
+	
+			> h3 {
+				color: $background;
+				font-weight: 400;
+				font-size: 1em;
+			}
+	
+			> p {
+				font-size: 0.7em;
+			}
+	
+		}
+	
+		> .player-options {
+			position: absolute;
+			top: 0;
+			left: 90%;
+			height: 100%;
+			width: 120%;
+			background-color: red;
+			transition: left 0.2s;
+
+			&:hover {
+				left: 70%;
+			}
+
+			&.empty {
+				left: 0 !important;
+			}
+		}
+
+	}
+}

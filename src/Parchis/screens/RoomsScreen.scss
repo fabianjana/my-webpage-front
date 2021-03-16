@@ -1,0 +1,91 @@
+@import '../variables.scss';
+
+.rooms-screen {
+	width: calc(min(90vw, 30rem));
+	height: 100%;
+	margin: 1.5rem auto 0 auto;
+	transition: transform 0.3s;
+
+	&.fade-in {
+		transform: translateX(40vw);
+		opacity: 0;
+	}
+
+	&.fade-out {
+		transform: translateX(-40vw);
+		opacity: 0;
+	}
+
+	h2 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	.greetings {
+		float: right;
+		
+		button {
+			position: relative;
+			color: $foreground;
+			font-size: 0.7em;
+			background-color: transparent;
+			border: none;
+			
+			&::after {
+				content: "";
+				background-color: $foreground;
+				position: absolute;
+				width: 0.6rem;
+				height: 0.1rem;
+				border-radius: 4px;
+				bottom: 0;
+				right: 0.2rem;
+				transition: all 0.3s;
+			}
+
+			&:hover::after {
+				width: 80%;
+			}
+
+			&:hover {
+				background-color: transparent;
+				border: none;
+			}
+		}
+	}
+
+	.room-list {
+		height: 50%;
+		overflow-y: auto;
+
+		> div {
+			font: inherit;
+			color: $background;
+			background-color: $foreground;
+			margin-top: 0.5rem;
+			padding: 0.3rem 1rem;
+		}
+		
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
+		
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			background-color: $foreground;
+			border-radius: 20px;
+		}
+	}
+
+	.join-button {
+		button {
+			width: 40%;
+			margin-top: 0.5rem;
+			margin-left: auto;
+			padding: 0.3rem 1rem;
+		}
+	}
+}
