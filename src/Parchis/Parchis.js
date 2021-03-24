@@ -4,12 +4,13 @@ import { io } from 'socket.io-client';
 import IntroScreen from './screens/IntroScreen';
 import RoomsScreen from './screens/RoomsScreen';
 import LobbyScreen from './screens/LobbyScreen';
+import { Board } from './components';
 import './Parchis.scss';
 
 const Parchis = () => {
 	const [socket, setSocket] = useState(null);
 	const [socketStatus, setSocketStatus] = useState({connected: false, message: 'Socket not initialized'});
-	const [step, setStep] = useState(0);
+	const [step, setStep] = useState(2);
 	const [playerInfo, setPlayerInfo] = useState({});
 
 	useEffect(() => {
@@ -42,7 +43,7 @@ const Parchis = () => {
 			case 1:
 				return <RoomsScreen socket={socket} playerInfo={playerInfo} setPlayerInfo={setPlayerInfo} />;
 			case 2:
-				return <LobbyScreen />;
+				return <Board />;
 			default:
 				return <div>{socketStatus.message}</div>;
 		}

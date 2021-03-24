@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { ChangeNick } from '../components';
-import { CreateRoom } from '../components';
+import { ChangeNick, CreateRoom } from '../components';
 import './RoomsScreen.scss';
 
 const RoomsScreen = ({socket, playerInfo, setPlayerInfo}) => {
